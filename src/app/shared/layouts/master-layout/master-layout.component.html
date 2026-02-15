@@ -1,0 +1,13 @@
+<app-top-header [width]="width" />
+@if(!isLive) {
+<app-user-auth-header [activeColor]="activeTextColor" [width]="width" />
+} @else {
+<app-header [width]="width" />
+
+}
+<main id="content" class="mt-[15px]">
+    <router-outlet />
+    <app-support-buttons />
+</main>
+<!--  <app-cookies-check />
+<app-footer [width]="width" [isLive]="isLive" /> -->

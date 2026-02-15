@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+@import "./assets/theme/font.scss";
+@import "./assets/theme/theme.scss";
+@import "./assets/theme/animate.scss";
+@import "tailwindcss";
+
+@custom-variant hover (&:hover);
+@custom-variant dark (&:where(.dark, .dark *));

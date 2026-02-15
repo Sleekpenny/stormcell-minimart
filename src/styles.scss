@@ -1,9 +1,76 @@
-
-
 @import "./assets/theme/font.scss";
 @import "./assets/theme/theme.scss";
 @import "./assets/theme/animate.scss";
-@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @custom-variant hover (&:hover);
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .layout-wrapper {
+    @apply flex h-screen overflow-hidden;
+  }
+
+  .overlay {
+    @apply fixed inset-0 bg-black/50 z-20 lg:hidden;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    @apply fixed lg:relative z-30 flex flex-col w-[210px] h-full bg-white -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out;
+  }
+  .sidebar.open {
+    @apply translate-x-0;
+  }
+  .sidebar-logo {
+    @apply px-4 py-4;
+  }
+  .logo-icon {
+    @apply w-8 h-8 text-blue-400;
+  }
+
+  /* Nav */
+  .sidebar-nav {
+    @apply flex-1 px-3 py-4 space-y-0.5 overflow-y-auto;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 text-sm font-medium transition-colors;
+  }
+  .nav-link.active {
+    @apply bg-white/10 text-white;
+  }
+  .nav-icon {
+    @apply w-5 h-5 flex-shrink-0;
+  }
+  .teams-label {
+    @apply px-3 pt-4 pb-2 text-xs text-gray-500;
+  }
+  .team-avatar {
+    @apply w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs text-white font-medium flex-shrink-0;
+  }
+
+  /* User */
+  .sidebar-user {
+    @apply px-4 py-4 flex items-center gap-3;
+  }
+  .user-avatar {
+    @apply w-8 h-8 rounded-full object-cover flex-shrink-0;
+  }
+  .user-name {
+    @apply text-sm text-white font-medium;
+  }
+
+  /* Main */
+  .main-wrapper {
+    @apply flex-1 flex flex-col min-w-0 overflow-hidden;
+  }
+  .mobile-header {
+    @apply lg:hidden flex items-center justify-between px-4 py-3 bg-[#0f1117] text-white text-sm font-medium;
+  }
+  .main-content {
+    @apply flex-1 p-4 lg:p-6 overflow-y-auto;
+  }
+}

@@ -1,19 +1,17 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent, FooterComponent, CookiesCheckComponent, TopHeaderComponent } from '@shared/components';
-import { isLive } from '@app/core/utils/config';
-import { GlobalsService } from '@app/core';
-import { SupportButtonsComponent } from 'livechat-assistant'
-import { UserAuthHeaderComponent } from "../../ui/user-auth-header/user-auth-header.component";
+import { NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from "@angular/router";
+import { HeaderComponent, SidebarComponent } from "@app/shared/ui";
+
 
 @Component({
   selector: 'app-master-layout',
   imports: [
-    HeaderComponent, FooterComponent,
-    SupportButtonsComponent, RouterOutlet,
-    CookiesCheckComponent,
-    TopHeaderComponent,
-    UserAuthHeaderComponent
+    RouterOutlet,
+    HeaderComponent,
+    NgIf,
+    RouterLink,
+    SidebarComponent
 ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
@@ -21,19 +19,20 @@ import { UserAuthHeaderComponent } from "../../ui/user-auth-header/user-auth-hea
   styleUrl: './master-layout.component.css'
 })
 export class MasterLayoutComponent {
-  readonly isLive: boolean = isLive
-  private readonly globals: GlobalsService = inject(GlobalsService);
+  readonly isLive: boolean = true
+  isSidebarOpen = false;
 
-  get width(): string {
-    return this.globals.widthClass
+  get width() {
+    return 'max-w-[80rem] mx-auto'
   }
 
-  get activeTextColor(): string {
-    return this.globals.activeTextColor
+  user = { name: 'Asemokhe Courage', avatar: 'https://i.pravatar.cc/32' };
+
+  toggleSidebar () {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  get activeColor(): string {
-    return this.globals.activeColor
-  }
+  @HostListener('window:resize', ['$event'])
+  onResize = ({ target }: Event) => { if ((target as Window).innerWidth >= 1024) this.isSidebarOpen = false; };
 }
 

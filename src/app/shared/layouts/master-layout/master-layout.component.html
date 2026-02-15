@@ -1,13 +1,18 @@
-<app-top-header [width]="width" />
-@if(!isLive) {
-<app-user-auth-header [activeColor]="activeTextColor" [width]="width" />
-} @else {
-<app-header [width]="width" />
-
+<!-- @if(isLive) {
+<app-header />
 }
+
 <main id="content" class="mt-[15px]">
     <router-outlet />
-    <app-support-buttons />
-</main>
-<!--  <app-cookies-check />
-<app-footer [width]="width" [isLive]="isLive" /> -->
+</main> -->
+
+<div class="layout-wrapper" [class]="width">
+
+    <app-sidebar [isSidebarOpen]="isSidebarOpen" [user]="user" (toggleSidebar)="toggleSidebar()" />
+    <div class="main-wrapper">
+        <app-header (toggleSidebar)="toggleSidebar()" [user]="user" />
+      <main class="main-content">
+        <router-outlet/>
+      </main>
+    </div>
+  </div>

@@ -1,1 +1,37 @@
-<p>header works!</p>
+<header class="">
+<div class="flex justify-between items-center px-4 md:px-0 gap-4">
+
+    <div class="lg:hidden block">
+        <button (click)="toggleSidebar.emit()">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+    </div>
+
+    <div class="border border-neutral-300 rounded-xl md:w-3/6 w-full flex items-center gap-4 px-4">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-6 h-6 text-neutral-300">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" placeholder="Search Brands" class="w-full py-2 focus:outline-none focus:ring-0 focus:ring-transparent focus:border-transparent" />
+      </div> 
+      
+      <div class="sidebar-user">
+        <img class="user-avatar" [src]="user.avatar" [alt]="user.name">
+        <img class="user-avatar" [src]="user.avatar" [alt]="user.name">
+        <app-theme /> 
+        <span class="hidden md:block">{{ user.name }}</span>       
+    </div>
+</div>
+<div class="block md:hidden">
+    <span>Dashboard</span>
+</div>
+</header>

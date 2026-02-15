@@ -1,0 +1,36 @@
+@if (isSidebarOpen) {
+    <div class="overlay" (click)="toggleSidebar.emit()"></div>
+}
+  
+<aside [class.open]="isSidebarOpen" class="sidebar">
+  <div class="sidebar-logo">
+    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+  </div>
+
+  <nav class="sidebar-nav">
+    @for (link of navLinks; track link.label) {
+      <a class="nav-link" [routerLink]="link.path" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="link.icon"/>
+        </svg>
+        {{ link.label }}
+      </a>
+    }
+
+    <p class="teams-label">Your teams</p>
+
+    @for (team of teams; track team) {
+      <a class="nav-link" href="#">
+        <span class="team-avatar">{{ team[0] }}</span>
+        {{ team }}
+      </a>
+    }
+  </nav>
+
+  <div class="sidebar-user">
+    <img class="user-avatar" [src]="user.avatar" [alt]="user.name">
+    <span class="user-name">{{ user.name }}</span>
+  </div>
+</aside>

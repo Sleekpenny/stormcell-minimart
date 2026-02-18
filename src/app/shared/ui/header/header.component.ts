@@ -11,5 +11,6 @@ import { ThemeComponent } from "../theme/theme.component";
 })
 export class HeaderComponent {
   @Output() toggleSidebar = new EventEmitter<any>()
-  @Input() user!: userInfo
+  @Input() user!: userInfo;
+  alarm: string ='https://unpkg.com/heroicons@2.0.18/24/outline/bell.svg'
 }

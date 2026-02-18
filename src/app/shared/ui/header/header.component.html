@@ -25,13 +25,22 @@
       </div> 
       
       <div class="sidebar-user">
-        <img class="user-avatar" [src]="user.avatar" [alt]="user.name">
-        <img class="user-avatar" [src]="user.avatar" [alt]="user.name">
-        <app-theme /> 
-        <span class="hidden md:block">{{ user.name }}</span>       
+        <div class="rounded-full p-4 border border-neutral-200/80">
+          <app-theme /> 
+        </div>
+        <div class="rounded-full p-4 border border-neutral-200/80 relative">
+          <div class="w-2.5 h-2.5 rounded-full bg-orange-500 absolute top-1.5 right-1"></div>
+          <img class="user-avatar" [src]="alarm" />
+        </div>
+        <div class="rounded-full">
+          <img class="user-avatar" [src]="user.avatar" [alt]="user.name" class="object-cover overflow-hidden rounded-full" width="62">
+
+        </div>
+
+        <span class="hidden md:block">{{ user.name }}</span>  
+        <svg class="w-4 h-4 transition-transform duration-200"  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>     
     </div>
-</div>
-<div class="block md:hidden">
-    <span>Dashboard</span>
 </div>
 </header>

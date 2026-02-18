@@ -1,2 +1,5 @@
 export * from './header/header.component'
 export * from './sidebar/sidebar.component'
+export * from './full-loader/full-loader.component'
+export * from './bar-chart/bar-chart.component'
+export * from './breadcrumbs/breadcrumbs.component'

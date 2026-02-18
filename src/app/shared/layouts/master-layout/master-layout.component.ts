@@ -9,8 +9,6 @@ import { HeaderComponent, SidebarComponent } from "@app/shared/ui";
   imports: [
     RouterOutlet,
     HeaderComponent,
-    NgIf,
-    RouterLink,
     SidebarComponent
 ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,9 +19,10 @@ import { HeaderComponent, SidebarComponent } from "@app/shared/ui";
 export class MasterLayoutComponent {
   readonly isLive: boolean = true
   isSidebarOpen = false;
+  isTeamOpen = false;
 
   get width() {
-    return 'max-w-[80rem] mx-auto'
+    return 'max-w-[100rem] mx-auto'
   }
 
   user = { name: 'Asemokhe Courage', avatar: 'https://i.pravatar.cc/32' };

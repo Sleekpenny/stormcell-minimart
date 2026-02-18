@@ -1,0 +1,27 @@
+<div class="flex items-center mb-4 w-full justify-evenly">
+    <button (click)="changeTab('revenue')" 
+      [class.font-semibold]="activeTab === 'revenue'"
+      class="flex items-center gap-2 text-lg text-gray-600">
+      <span class="w-2 h-2 rounded-full bg-red-500"></span>
+      Revenue
+    </button>
+    <button (click)="changeTab('stores')"
+      [class.font-semibold]="activeTab === 'stores'"
+      class="flex items-center gap-2 text-lg text-gray-400">
+      <span class="w-2 h-2 rounded-full bg-orange-200"></span>
+      Stores
+    </button>
+    <button (click)="changeTab('referrals')"
+      [class.font-semibold]="activeTab === 'referrals'"
+      class="flex items-center gap-2 text-lg text-gray-400">
+      <span class="w-2 h-2 rounded-full bg-pink-200"></span>
+      Referrals
+    </button>
+    <button (click)="changeTab('users')"
+      [class.font-semibold]="activeTab === 'users'"
+      class="flex items-center gap-2 text-lg text-gray-400">
+      <span class="w-2 h-2 rounded-full bg-amber-200"></span>
+      Users
+    </button>
+  </div>
+<app-bar-chart [options]="chartOptions" />

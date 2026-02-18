@@ -1,31 +1,64 @@
 @if (isSidebarOpen) {
-    <div class="overlay" (click)="toggleSidebar.emit()"></div>
+<div class="overlay" (click)="toggleSidebar.emit()"></div>
 }
-  
+
 <aside [class.open]="isSidebarOpen" class="sidebar">
   <div class="sidebar-logo">
     <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
   </div>
 
-  <nav class="sidebar-nav">
+  <nav class="sidebar-nav hide-scrollbar">
+    <p class="teams-label text-lg uppercase">menu</p>
     @for (link of navLinks; track link.label) {
-      <a class="nav-link" [routerLink]="link.path" routerLinkActive="active" (click)="closeSidebarOnMobile()">
-        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="link.icon"/>
+    @if (link.children) {
+    <div>
+      <button class="hover:bg-blue-50/80 cursor-pointer flex justify-between w-full items-center rounded-lg"
+        (click)="toggleLink(link.label, $event)">
+        <div class="flex items-center gap-3 text-lg text-neutral-800 p-4 font-medium">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="link.icon" />
+          </svg>
+          {{ link.label }}
+        </div>
+        <svg class="w-4 h-4 mr-2" [class.rotate-180]="openLinks[link.label]"
+          fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
-        {{ link.label }}
-      </a>
-    }
+      </button>
 
-    <p class="teams-label">Your teams</p>
+      <div class="overflow-hidden" [class.max-h-0]="!openLinks[link.label]"
+        [class.max-h-40]="openLinks[link.label]">
+        <div class="pl-8 mt-0.5 space-y-0.5">
+          @for (child of link.children; track child.label) {
+          <a class="flex text-lg text-neutral-800 p-4 hover:bg-blue-50/80 cursor-pointer rounded-lg"
+            [routerLink]="child.path" routerLinkActive="active" (click)="closeSidebarOnMobile()"
+            [ngClass]="{'border border-blue-800': child.isBorder}">
+            {{ child.label }}
+          </a>
+          }
+        </div>
+      </div>
+    </div>
+    } @else {
+    <a class="nav-link text-lg text-neutral-800 p-4 hover:bg-blue-50/80 cursor-pointer font-medium"
+      [routerLink]="link.path" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="link.icon" />
+      </svg>
+      {{ link.label }}
+    </a>
+    }
+    }
+    <p class="teams-label text-lg uppercase">Your teams</p>
 
     @for (team of teams; track team) {
-      <a class="nav-link" href="#">
-        <span class="team-avatar">{{ team[0] }}</span>
-        {{ team }}
-      </a>
+    <div class="nav-link flex gap-3 items-center hover:bg-blue-50/80 cursor-pointer p-4" [routerLink]="team.path" >
+      <img [src]="team.image" alt="">
+      <span class="text-lg text-neutral-800 font-medium">{{ team.label }}</span>
+    </div>
     }
   </nav>
 

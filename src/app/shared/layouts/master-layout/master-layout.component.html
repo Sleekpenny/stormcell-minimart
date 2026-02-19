@@ -2,7 +2,7 @@
   <app-sidebar [isSidebarOpen]="isSidebarOpen" [isTeamOpen]="isTeamOpen" [user]="user" (toggleSidebar)="toggleSidebar()" />
   <div class="main-wrapper">
     <app-header (toggleSidebar)="toggleSidebar()" [user]="user" />
-    <main class="main-content bg-blue-50/90 border border-neutral-400/70 p-4">
+    <main class="main-content bg-gray-50/90 border border-neutral-400/70 p-5">
       <router-outlet />
     </main>
   </div>

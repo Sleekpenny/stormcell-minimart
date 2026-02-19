@@ -1,4 +1,93 @@
-export const pageContent = {}
+export const pageContent = {
+  stats: [
+    {
+      label: 'Total Revenue',
+      value: 5424326,
+      showIcon: true,
+      icon: '$',
+      iconColor: '#3b82f6',
+      iconBgColor: '#eff6ff',
+      showPercentage: true,
+      percentage: 5,
+      trend: 'up' as const,
+      footerText: 'Increased from last month'
+    },
+    {
+      label: 'Total Stores',
+      value: 87365,
+      showIcon: true,
+      icon: '🛒',
+      iconColor: '#10b981',
+      iconBgColor: '#d1fae5',
+      showPercentage: true,
+      percentage: 5,
+      trend: 'up' as const,
+      footerText: 'Increased from last month'
+    },
+    {
+      label: 'Total Referrals',
+      value: 324341,
+      showIcon: true,
+      icon: '👥',
+      iconColor: '#f59e0b',
+      iconBgColor: '#fef3c7',
+      showPercentage: true,
+      percentage: 8,
+      trend: 'down' as const,
+      footerText: 'Increase from last month'
+    },
+    {
+      label: 'Total User',
+      value: 3.2,
+      showIcon: true,
+      icon: '📊',
+      iconColor: '#8b5cf6',
+      iconBgColor: '#f3e8ff',
+      showPercentage: true,
+      percentage: -5,
+      trend: 'neutral' as const,
+      footerText: 'Increase from last month'
+    }
+  ],
+  stats_revenue: [
+    {
+      label: 'Total Stores',
+      value: 87365,
+      showIcon: true,
+      icon: '🛒',
+      iconColor: '#10b981',
+      iconBgColor: '#d1fae5',
+      showPercentage: true,
+      percentage: 5,
+      trend: 'up' as const,
+      footerText: 'Increased from last month'
+    },
+    {
+      label: 'Total Referrals',
+      value: 324341,
+      showIcon: true,
+      icon: '👥',
+      iconColor: '#f59e0b',
+      iconBgColor: '#fef3c7',
+      showPercentage: true,
+      percentage: 8,
+      trend: 'down' as const,
+      footerText: 'Increase from last month'
+    },
+    {
+      label: 'Total User',
+      value: 3.2,
+      showIcon: true,
+      icon: '📊',
+      iconColor: '#8b5cf6',
+      iconBgColor: '#f3e8ff',
+      showPercentage: true,
+      percentage: -5,
+      trend: 'neutral' as const,
+      footerText: 'Increase from last month'
+    }
+  ],
+}
 
 export const utilis = {
   navLinks:  [

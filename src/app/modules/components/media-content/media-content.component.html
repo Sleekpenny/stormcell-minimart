@@ -1,0 +1,9 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+    @for (media of mediaFiles; track media.id) {
+      <app-media-card
+        [imageUrl]="media.imageUrl"
+        [fileName]="media.fileName"
+        [uploadTime]="media.uploadTime"
+        [fileSize]="media.fileSize"/>
+    }
+  </div>

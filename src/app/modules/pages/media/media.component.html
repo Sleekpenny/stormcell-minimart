@@ -1,1 +1,12 @@
-<p>media works!</p>
+<div class="flex justify-between items-center">
+    <div class="flex flex-col gap-">
+        <p class="md:text-3xl py-2 text-lg font-medium">Media Library</p>
+        <app-breadcrumbs [urls]="breadcrumbs || []" />
+    </div>
+    <div class="w-fit p-4 rounded-xl bg-red-600 text-white">
+        Upload
+    </div>
+</div>
+<app-media-container>
+    <app-media-content [mediaFiles]="mediaFiles" />
+</app-media-container>

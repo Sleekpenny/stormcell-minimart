@@ -1,0 +1,5 @@
+<div class="grid grid-cols-1 items-center gap-4 mt-4" [class]="classList">
+    @for (item of stats; track $index) {
+        <app-stats-card [card]="item"/>
+    }
+</div>

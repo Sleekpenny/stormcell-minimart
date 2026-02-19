@@ -42,7 +42,7 @@
     @apply flex items-center gap-3 py-2 rounded-lg font-medium;
   }
   .active {
-    @apply bg-blue-800 !text-neutral-200;
+    @apply bg-blue-800 !text-neutral-200 hover:text-neutral-800;
   }
   .nav-icon {
     @apply w-5 h-5 flex-shrink-0;

@@ -1,0 +1,43 @@
+<div class="relative bg-white rounded-xl  overflow-hidden hover:shadow-lg transition-shadow">
+      
+    <div class="relative w-full h-40 bg-gray-100">
+      <img [src]="imageUrl" [alt]="fileName" class="w-full h-full object-cover">
+      
+      <button (click)="toggleMenu($event)" 
+        class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 dark:hover:bg-neutral-700">
+        <svg class="w-5 h-5 text-gray-8s00 " fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+      </button>
+
+      @if (showMenu) {
+        <div class="absolute top-12 right-3 w-40 bg-white rounded-lg shadow-xl dark:border-neutral-700 py-1 z-10">
+          <button class="w-full px-4 py-2 text-left text-sm text-gray-8s00  hover:bg-gray-50 dark:hover:bg-neutral-700 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            Edit
+          </button>
+          <button class="w-full px-4 py-2 text-left text-sm text-gray-8s00  hover:bg-gray-50 dark:hover:bg-neutral-700 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download
+          </button>
+          <button class="w-full px-4 py-2 text-left text-sm text-gray-8s00  hover:bg-gray-50 dark:hover:bg-neutral-700 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            Copy URL
+          </button>
+          <button class="w-full px-4 py-2 text-left text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            Delete
+          </button>
+        </div>
+      }
+    </div>
+
+    <div class="p-4">
+        <p class="text-lg font-medium text-gray-900 truncate">{{ fileName }}</p>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-sm text-gray-500 ">📤 Uploaded · {{ uploadTime }}</span>
+          <span class="text-sm text-gray-500 ">{{ fileSize }}</span>
+        </div>
+      </div>
+
+    </div>

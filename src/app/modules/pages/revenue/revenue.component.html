@@ -1,2 +1,13 @@
-<p class="md:text-2xl text-lg font-medium">Dashboard</p>
-<app-breadcrumbs [urls]="urls || []" />
+<p class="md:text-3xl py-2 text-lg font-medium">All Revenue</p>
+<app-breadcrumbs [urls]="breadcrumbs || []" />
+<app-statistics-card [stats]="stats" [classList]="'md:grid-cols-3'"/>
+<app-container title="Recent Transactions" [entity]=true>
+
+    <app-request-table
+    [headers]="tableHeaders"
+    [data]="transactions"
+    [showCheckbox]="true"
+    [showActions]="true"
+    (rowClick)="handleRowClick($event)"
+    (actionClick)="handleActionClick($event)" />
+</app-container>

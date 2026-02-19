@@ -1,1 +1,14 @@
-<p>locations works!</p>
+<div class="flex justify-between items-center">
+    <div class="flex flex-col gap-">
+        <p class="md:text-3xl py-2 text-lg font-medium">All Locations</p>
+        <app-breadcrumbs [urls]="breadcrumbs || []" />
+    </div>
+    <div class="w-fit p-4 rounded-xl bg-red-600 text-white">
+        + Add Locations
+    </div>
+</div>
+<app-container title="Recent Transactions" [entity]=true>
+    <app-request-table [headers]="tableHeaders" [data]="countries" [showCheckbox]="false" [showActions]="true"
+        (rowClick)="handleRowClick($event)" (actionClick)="handleActionClick($event)"
+        (toggleChange)="handleToggleChange($event)" />
+</app-container>

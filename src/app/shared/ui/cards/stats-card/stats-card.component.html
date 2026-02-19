@@ -1,0 +1,52 @@
+
+    <div class="bg-white rounded-lg border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xl font-medium text-gray-500">{{ card.label }}</span>
+        @if (card.showIcon) {
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center"
+            [style.background-color]="card.iconBgColor">
+            <span class="text-xl" [style.color]="card.iconColor">{{ card.icon }}</span>
+          </div>
+        }
+      </div>
+
+      <h3 class="text-3xl text-gray-900 mb-3">
+        @if (card.showCurrencyPrefix) {
+          <span class="text-gray-400 mr-0.5">{{ card.currencySymbol }}</span>
+        }
+        {{ card.value  }}
+        @if (card.showCurrencySuffix) {
+          <span class="text-xl text-gray-400 ml-1">{{ card.currencySrzymbol }}</span>
+        }
+      </h3>
+
+      <!-- Footer -->
+      @if (card.showPercentage) {
+        <div class="flex items-center gap-2 mt-4 ">
+          @if (card.showPercentage) {
+            <div class="flex items-center gap-1 text-sm font-semibold bg-gray-100/50 p-1 rounded-md"
+              [ngClass]="{
+                'text-green-600': card.trend === 'up',
+                'text-red-600': card.trend === 'down',
+                'text-gray-600': card.trend === 'neutral'
+              }">
+              @if (card.trend === 'up') {
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/>
+                </svg>
+              }
+              @if (card.trend === 'down') {
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              }
+              <span class="text-sm">{{ card.percentage }}%</span>
+            </div>
+          }
+          @if (card.footerText) {
+            <span class="text-sm text-gray-500">{{ card.footerText }}</span>
+          }
+        </div>
+      }
+
+    </div>

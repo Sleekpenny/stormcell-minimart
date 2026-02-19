@@ -1,3 +1,6 @@
 <p class="md:text-3xl py-2 text-lg font-medium">Dashboard</p>
 <app-breadcrumbs [urls]="breadcrumbs || []" />
-<app-chart />
+<app-statistics-card [stats]="stats" [classList]="'md:grid-cols-4'" />
+<app-container title="Conversion Funnel">
+    <app-chart />
+</app-container>

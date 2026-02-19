@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BarChartComponent } from "../bar-chart/bar-chart.component";
+import { BarChartComponent } from "../../../shared/ui/bar-chart/bar-chart.component";
 
 @Component({
   selector: 'app-chart',

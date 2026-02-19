@@ -87,6 +87,26 @@ export const pageContent = {
       footerText: 'Increase from last month'
     }
   ],
+  stats_support: [
+    {
+      label: 'Total Requests',
+      value: 87365,
+      showIcon: true,
+      icon: '🛒',
+    },
+    {
+      label: 'Pending Requests',
+      value: 324341,
+      showIcon: true,
+      icon: '👥',
+    },
+    {
+      label: 'Solved Requests',
+      value: 38762,
+      showIcon: true,
+      icon: '📊',
+    }
+  ],
 }
 
 export const utilis = {

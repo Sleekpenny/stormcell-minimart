@@ -1,1 +1,8 @@
-<p>list works!</p>
+<p class="md:text-3xl py-2 text-lg font-medium">Support List</p>
+<app-breadcrumbs [urls]="breadcrumbs || []" />
+<app-statistics-card [stats]="stats" [classList]="'md:grid-cols-3'"/>
+<app-container title="All Request" [entity]=true> 
+    <app-request-table [headers]="tableHeaders" [data]="support_list" [showCheckbox]="true" [showActions]="true"
+    (rowClick)="handleRowClick($event)" (actionClick)="handleActionClick($event)"
+   />
+</app-container>

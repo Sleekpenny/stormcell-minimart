@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "buildCommand": "npm install --legacy-peer-deps && ng build",
+    "buildCommand": "ng build --configuration production",
     "installCommand": "npm install --legacy-peer-deps",
     "outputDirectory": "dist/stormcell-minicart/browser",
     "framework": "angular",

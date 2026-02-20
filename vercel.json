@@ -1,11 +1,9 @@
 {
     "version": 2,
-    "public": true,
-    "buildCommand": "npm run build",
-    "outputDirectory": "dist/stormcell-minicart/browser",
-    "devCommand": "ng serve --port $PORT",
+    "buildCommand": "npm install --legacy-peer-deps && ng build",
+    "installCommand": "npm install --legacy-peer-deps",
+    "outputDirectory": "dist/your-project-name/browser",
     "framework": "angular",
-    "installCommand": "npm install",
     "routes": [
       {
         "src": "/assets/(.*)",

@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "public": true,
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist/stormcell-minicart/browser",
+    "devCommand": "ng serve --port $PORT",
+    "framework": "angular",
+    "installCommand": "npm install",
+    "routes": [
+      {
+        "src": "/assets/(.*)",
+        "dest": "/assets/$1"
+      },
+      {
+        "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|webp|gif|woff|woff2|ttf|eot))",
+        "dest": "/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
